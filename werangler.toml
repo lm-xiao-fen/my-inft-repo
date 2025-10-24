@@ -1,0 +1,28 @@
+# wrangler.toml
+# Cloudflare Workers 项目配置文件
+
+name = "inft"        # Worker 名称（可自定义）
+main = "worker.js"         # 入口文件名（与你刚生成的文件对应）
+compatibility_date = "2025-10-24"  # 设置为今天日期（Cloudflare 要求）
+workers_dev = true                 # 允许在 *.workers.dev 子域测试
+node_compat = false                # 若用 Node 库则设为 true（这里不用）
+
+# 可选：绑定自定义域名（部署到正式域）
+# routes = [
+#   { pattern = "example.com/*", zone_name = "example.com" }
+# ]
+
+# KV Namespace 绑定
+[[kv_namespaces]]
+binding = "PROFILES_KV"            # 必须与 worker.js 中的绑定名称一致
+id = "PROFILES_KV"  # 你在 Cloudflare KV 控制台看到的命名空间 ID
+
+# 可选：配置日志或变量
+# [vars]
+# ENV = "production"
+
+# 可选：构建配置（如果你未来使用 TypeScript 或打包工具）
+# [build]
+# command = "npm run build"
+# upload.format = "modules"
+
