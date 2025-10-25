@@ -1,0 +1,16 @@
+# wrangler.toml
+# Cloudflare Workers 项目配置文件
+
+name = "multi-profile-site"
+main = "worker_updated.js"
+compatibility_date = "2025-10-24"
+workers_dev = true
+node_compat = false
+
+[[kv_namespaces]]
+binding = "PROFILES_KV"
+id = "examplekvnamespaceid12345678"
+
+# 可选变量
+# [vars]
+# ENV = "production"
